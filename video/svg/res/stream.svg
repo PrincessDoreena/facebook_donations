@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+<defs>
+	<linearGradient id="background" x1="0%" y1="0%" x2="0%" y2="100%">
+		<stop style="stop-color:#ffffff" offset="0%" />
+		<stop style="stop-color:#ff8080" offset="100%" />
+	</linearGradient>
+	<pattern  id="lines" x="0" y="0" width="1.8" height="2.6" patternUnits="userSpaceOnUse">
+		<line x1="0" y1="2.6" x2="1.8" y2="2.6" stroke="black" stroke-width="0.1" />
+	</pattern>
+	<svg id="yellowmon" viewBox="0 0 3 3" >
+		<g>
+		<path d="M 0 2 a 1.5 1 0 0 0 3 0 v -0.3 h -3 Z" fill="#806600" />
+		<ellipse cx="1.5" cy="1.7" rx="1.5" ry="1" fill="#aa8800" />
+		</g>
+	</svg>
+	<svg id="greymon" viewBox="0 0 3 3" >
+		<g>
+		<path d="M 0 2 a 1.5 1 0 0 0 3 0 v -0.3 h -3 Z" fill="#808080" />
+		<ellipse cx="1.5" cy="1.7" rx="1.5" ry="1" fill="#999999" />
+		</g>
+	</svg>
+	<svg id="moneylevel0" viewBox="0 0 10 10" >
+		<use xlink:href="#yellowmon" width="3" height="3" x="0" y="9" />
+		<use xlink:href="#yellowmon" width="3" height="3" x="2.2" y="6.7" />
+		<use xlink:href="#greymon" width="3.2" height="3.2" x="1" y="4" />
+		<use xlink:href="#greymon" width="3.2" height="3.2" x="5" y="3.3" />
+	</svg>
+	<svg id="moneylevel1" viewBox="0 0 10 10" >
+		<use xlink:href="#yellowmon" width="3" height="3" x="3" y="6.2" />
+		<use xlink:href="#yellowmon" width="3" height="3" x="4.4" y="5.1" />
+		<use xlink:href="#greymon" width="3.2" height="3.2" x="0" y="7.8" />
+		<use xlink:href="#greymon" width="3.2" height="3.2" x="1.6" y="2.7" />
+		<use xlink:href="#greymon" width="3.2" height="3.2" x="5.1" y="3.3" />
+	</svg>
+</defs>
+
+<rect width="1280" height="720" fill="url(#background)" />
+
+<svg viewBox="0 0 17.5 33.5" x="40" y="246.5" width="228" height="435.5" preserveAspectRatio="meet" >
+<g id="donationbox" >
+	<!-- bottom -->
+	<path d="M 0 33.5 h 10 l 7.5 -7.5 h -10 Z" fill="#d1b893" />
+	<!-- backside -->
+	<rect x="7.5" y="0" width="10" height="26" fill="#af9064"/>
+
+	<!-- coins -->
+	<!-- INSERT COINS -->
+
+	<!-- front -->
+	<rect x="0" y="7.5" width="10" height="26" fill="#e7bf8b"/>
+	<!-- top -->
+	<path d="M 0 7.5 h 10 l 7.5 -7.5 h -10 Z" fill="#f1ce9f" />
+	<!-- side -->
+	<path d="M 10 7.5 v 26 l 7.5 -7.5 v -26 Z" fill="none" stroke="#008080" stroke-width="0.1" stroke-linecap="round" />
+	<!-- hole -->
+	<path d="M 6 5.5 h 2 L 11.5 2 h -2 Z" fill="#745e3c" />
+
+	<rect x="8.2" y="7.5" width="1.8" height="26" fill="url(#lines)"/>
+
+	<!-- ARROW -->
+	<!-- NUMBER -->
+</g>
+</svg>
+
+</svg>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Names</title>
+	</head>
+
+	<body>
+		<table style="border: 1px solid black;">
+			<tr>
+				<th>Name</th>
+				<th>Value</th>
+			</tr>
+			{% for (id, name, amount) in people %}
+			<tr>
+				<th>
+					<input id='name_{{ id }}' type=text readonly value='{{ name }}' />
+				</th>
+				<th>
+					<input id='amount_{{ id }}' type=number readonly value='{{ amount }}' />
+				</th>
+				<th>
+					<button id='edit_{{ id }}' onclick='editName({{ id|tojson }});'>
+					Szerkesztés
+					</button>
+				</th>
+				<th>
+					<button onclick='delName({{ id|tojson }});'>
+					Törlés
+					</button>
+				</th>
+			</tr>
+			{% endfor %}
+			<tr>
+				<th>
+					<input id='new_name' type=text placeholder='Név' />
+				</th>
+				<th>
+					<input id='new_amount' type=number value=300 />
+				</th>
+				<th>
+					<button id='new_add' onclick='addName();'>
+					Hozzáadás
+					</button>
+				</th>
+			</tr>
+		</table>
+		<button id='gen_stream' onclick='genStream();'>Update video</button>
+	</body>
+</html>
+
+<script>
+	function delName(id) {
+		xhr = new XMLHttpRequest();
+		xhr.open("POST", "delname", true);
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.send("id=" + id);
+		location.reload(false);
+	}
+
+	function saveName(id) {
+		name_field = document.getElementById("name_" + id);
+		amount_field = document.getElementById("amount_" + id);
+		edit_button = document.getElementById("edit_" + id);
+		edit_button.innerHTML = "Edit";
+		edit_button.onclick = function() { editName(id)};
+		name_field.readOnly = true;
+		amount_field.readOnly = true;
+		name = name_field.value;
+		amount = amount_field.value;
+
+		xhr = new XMLHttpRequest();
+		xhr.open("POST", "edname", true);
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.send("id=" + id + "&name=" + name + "&amount=" + amount);
+		location.reload(false);
+	}
+
+	function editName(id) {
+		document.getElementById("name_" + id).readOnly = false;
+		document.getElementById("amount_" + id).readOnly = false;
+		edit_button = document.getElementById("edit_" + id);
+		edit_button.innerHTML = "Save";
+		edit_button.onclick = function() { saveName(id)};
+	}
+
+	function addName() {
+		name_field = document.getElementById("new_name");
+		amount_field = document.getElementById("new_amount");
+		name = name_field.value;
+		amount = amount_field.value;
+
+		xhr = new XMLHttpRequest();
+		xhr.open("POST", "addname", true);
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.send("name=" + name + "&amount=" + amount);
+		location.reload(false);
+	}
+
+	function genStream() {
+		window.location = 'generate';
+	}
+</script>
